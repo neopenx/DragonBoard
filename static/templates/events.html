@@ -1,0 +1,51 @@
+<div ng-controller="EventCtrl">
+
+<div class="center-block" style="max-width:1024px">
+<div class="row">
+  <div class="col-lg-12">
+    <rd-widget>
+      <rd-widget-header icon="fa-tasks" title="{{watch}}">
+		  <span class="user pull-right">
+              <div class="item dropdown" uib-dropdown>
+                <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+                  <img src="img/refresh.jpg">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="dropdown-header">Auto Refresh</li>
+                  <li class="divider"></li>
+                    <li class="link"><a ng-click="autoRefresh('Slow')"> Slow </a></li>
+                    <li class="link"><a ng-click="autoRefresh('Medium')"> Medium </a></li>
+                    <li class="link"><a ng-click="autoRefresh('Fast')"> Fast </a></li>
+                  <li class="divider"></li>
+                    <li class="link"><a ng-click="autoRefresh('None')"> Disable </a></li>
+                </ul>
+              </div>
+            </span>
+	  </rd-widget-header>
+        <rd-widget-body>
+			<canvas id="line" class="chart chart-line" chart-data="Y"
+				    chart-labels="X" chart-series="Series" chart-options="options">
+			</canvas>
+        </rd-widget-body>
+    </rd-widget>
+  </div>
+</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-xs-12">
+		<div ng-repeat='item in scalars'>
+  			<div class="col-lg-2 col-md-3 col-xs-12">
+				<click-widget>
+					<rd-widget-body>
+						    <div class="title" style="text-align: center">{{item.name}}</div>
+						    <div class="comment" style="text-align: center">{{item.update_time}}</div>
+					</rd-widget-body>
+				</click-widget>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
