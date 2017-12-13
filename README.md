@@ -13,7 +13,21 @@
 2. Copy files
 
     ```Shell
-    cp -r DragonBoard/static DragonBoard/templates Dragon/python/tools/board
+    cp -r DragonBoard/static DragonBoard/templates $DRAGON_ROOT/python/dragon/tools/board
+    ```
+    
+3. Install Dragon
+
+    ```Shell
+    cd $DRAGON_ROOT/python
+    python setup.py install
+    ```
+    
+    **Note**: If you do not have permission, try as follows:
+
+    ```Shell
+    cd $DRAGON_ROOT/python
+    python setup.py install --user
     ```
 ----
 
@@ -51,3 +65,13 @@ You can also set the port freely for multiple Apps:
 board = DragonBoard(port=2333)
 board.start()
 ```
+
+### Tricks
+
+1. The dashboard will directly use the **logs** folder(made by SummaryWriter).
+
+    If you forgot to start the board before training, you can start the borad in another python file, 
+    
+    i.e., the board just simply **Crawl** your log files.
+
+2. Comming soon...
